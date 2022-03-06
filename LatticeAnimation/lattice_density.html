@@ -233,6 +233,7 @@ var rotateState = true; //boolean that is either true or false
 var Rate = 0.00006; //Rate of spinning
 var t0 = Date.now();
 var BaseMat = [[2.0,0.567],[0.0,0.5]];
+var hex_mat =[[1.074569931823541919553338156, 0.537284965911771],[0,0.9306048591021]] ;
 d3.timer(function() {
 	if(rotateState){
 	  var delt= (Date.now() - t0) * Rate;
@@ -313,8 +314,10 @@ function changelattice(A,newcolor,newradius){
 }
 
 
-var firstQue = 1
-var secondQue = 5
+const theta = 1.074569931823541919553338156;
+var firstQue = 1;
+var secondQue = 5;
+
 var _transitions = [
 
         {
@@ -347,43 +350,17 @@ var _transitions = [
         },
         {
 		transitionForward: () => {
+			changelattice( hex_mat ,  color2, (x(0.5)-x(0))*theta);
 			d3.selectAll('polygon.fundomain')
 				.transition().duration(transitDuration)
 				.attr('opacity',0.0);
-			d3.selectAll('circle.testball')
-				.transition().duration(transitDuration)
-				.attr('r',200);
+
 		},
 		transitionBackward: () => {
-			d3.selectAll('polygon.fundomain')
-				.transition().duration(transitDuration)
-				.attr('opacity',0.7);
-			d3.selectAll('circle.testball')
-				.transition().duration(transitDuration)
-				.attr('r',0);
+			changelattice([[1.0,0.5],[0.0,1.0]], color2, cRadius2 );
+
 		},
 		  index: secondQue
-        },
-        {
-		transitionForward: () => {
-			d3.selectAll('polygon.fundomain')
-				.transition().duration(transitDuration)
-				.attr('opacity',0.7);
-			d3.selectAll('circle.testball')
-				.transition().duration(transitDuration)
-				.attr('opacity',0.0)
-				.attr('r',500);
-		},
-		transitionBackward: () => {
-			d3.selectAll('polygon.fundomain')
-				.transition().duration(transitDuration)
-				.attr('opacity',0.0);
-			d3.selectAll('circle.testball')
-				.transition().duration(transitDuration)
-				.attr('opacity',0.6)
-				.attr('r',200);
-		},
-		  index: secondQue+1
         }
 
 //      {

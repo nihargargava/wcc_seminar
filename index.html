@@ -30,7 +30,7 @@
 						Chair of Number Theory,<br>
 						Section of Mathematics,
 					<br>
-						École Polytechnique Fédérale de Lausanne, 
+						École Polytechnique Fédérale de Lausanne
 					</p>
 					<br>
 
@@ -74,28 +74,25 @@
 						\(\DeclareMathOperator{\R}{\mathbb{R}}\)\(\DeclareMathOperator{\Z}{\mathbb{Z}}\)\(\DeclareMathOperator{\C}{\mathbb{C}}\)\( \DeclareMathOperator{\F}{\mathbb{F}}\)Consider $\R^d$ with the standard inner product. A lattice $\Lambda\subseteq \R^d$ is a discrete subgroup such that the quotient space $\R^d / \Lambda$ has a finite induced volume.
 							</p>
 							<p class="fragment fade-in-then-semi-out">
-							Given a lattice $\Lambda$, choose $r > 0$ and consider the open balls $\{ B_{r}\left( v \right)\}_{v \in \Lambda}$ such for any $v_1, v_2 \in \Lambda$, $B_{r}(v_1) \cap B_{r}(v_2) \neq \emptyset \Rightarrow v_1 = v_2$.
+							Given a lattice $\Lambda$, we define the packing radius $r_{\text{pack}}$ to be the largest possibt radius $r$ such that the open balls $\{ B_{r}\left( v \right)\}_{v \in \Lambda}$ satisfy $v_1, v_2 \in \Lambda$, $B_{r}(v_1) \cap B_{r}(v_2) \neq \emptyset \Rightarrow v_1 = v_2$.
 							</p>
 							<!-- Empty fragments are added to keep the d3 stuff in sync -->
 							<p class="fragment fade-in-then-semi-out">
 
 							<p class="fragment fade-in-then-semi-out">
-
-							Then $(\Lambda,r)$ is called a lattice sphere packing, or simply lattice packing inside $(\R^d, \langle \ , \ \rangle)$.
-							</p>
-
-							<p class="fragment fade-in-then-semi-out">
 							Packing density of a lattice packing is:
 							\[
 							\lim_{R \rightarrow \infty} \frac{\mu\left( B_{R}(0) \cap \left(  \bigsqcup_{v \in \Lambda} B_{r}(v) \right) \right)}{\mu\left( B_{R}(0) \right)} = 
-							\frac{\mu( B_{r}(0) )}{ \mu(\R^d / \Lambda)}
+							\frac{\mu( B_{r_{\text{pack}}}(0) )}{ \mu(\R^d / \Lambda)}
 							\]
 
-							It is always in the interval $[0,1]$.
+							It is always in the interval $[0,1]$ and is scaling indpendent.
 							</p>
 
 
 							<p class="fragment fade-in-then-semi-out">
+							In $2$ dimensions, the densest lattice packing is the hexagonal lattice.
+							</p>
 						</div>
 						<div style="float: right;  width:40%; ">
 							<h4 style="text-align: center">
@@ -107,100 +104,63 @@
 						<br>
 
 					</section>
-
 					<section>
-						<div style="float: left;  width:50%; ">
-
 							<p class="fragment fade-in-then-semi-out">
-							However, note that $2r$ can be at most $$m(\Lambda) = \min_{v \in \Lambda \setminus \{0\}} ||v|| ,$$ otherwise some balls will begin to intersect.
-
-							<p class="fragment fade-in-then-semi-out">
-							<!-- EMPTY -->
+							For a lattice $\Lambda$, we denote it's packing density as $\Delta(\Lambda)$
 							</p>
-							<p class="fragment fade-in-then-semi-out">
-							The goal is to maximize packing density. So take $r = \frac{1}{2}m(\Lambda)$. In that case packing density will be equal to $$\frac{\mu( B_{m(\Lambda)/2}(0) )}{ \mu(\R^d / \Lambda)},$$ and is independent of scaling. 
 
-							</p>
 							<p class="fragment fade-in-then-semi-out">
-							To maximize this over all $\Lambda$, it is sufficient to maximize over unit covolume lattices (i.e. \(\mu(\R^d/\Lambda)\) = 1)
+							Lattices have lots of applications in coding theory. In particular, they form good candidates for Euclidean codes under an Additive White Gaussian Noise (AWGN) model.
+							</p>
+							
+							<p class="fragment fade-in-then-semi-out">
+							<i>Be careful!</i>
+							<br>
+							Coding theoretic packing density is defined slightly differently. For $\Lambda \subseteq \mathbb{R}^{d}$
+							\begin{align}
+							  \frac{r_{\text{pack}(\Lambda)}}{r_{\text{eff}(\Lambda)}} = \Delta(\Lambda)^{\frac{1}{d}},
+							\end{align}
+							</p>
 
-							</p>
-							<p class="fragment fade-in-then-semi-out">
-						</div>
-						<div style="float: right;  width:40%; ">
-							<h4 style="text-align: center">
-								<br>
-								Visualizing in $\R^2$
-							</h4>
-							<div class="fig-container no-margin-top" data-preload data-file="LatticeAnimation/lattice_Cd.html"></div>
+						<div class="fragment fade-in-then-semi-out" style="border:3px solid darkgrey;border-radius: 5px;padding: 25px 25px 25px 20px;border-style: outset;   ">
+							<h4 style="display: inline-block;" > Theorem  </h4> <i> (Minkowski, ~1896) </i> 
+							<br>
+
+							It is possible to have a sequence of lattices $\Lambda^{(d)} \subseteq \mathbb{R}^{d}$ as $d \rightarrow \infty$ such that 
+							\begin{align}
+							  \Delta(\Lambda^{(d)}) \ge 2^{-d}.
+							\end{align}
 						</div>
 					</section>
+
 					<section>
-						<div style="float: left;  width:50%; ">
 
 							<p class="fragment fade-in-then-semi-out">
-							So we somehow find 
-							\[
-							\sup_{\substack{\Lambda \subseteq \R^d \\ \mu(\R^d/\Lambda)=1}}  \mu\left(B_{m(\Lambda)/2}(0) \right)
-							\]
+Improvements have been made on this by Rogers, Vance, Venkatesh. The current best bound is by Venkatesh:
+							\begin{align}
+							\limsup\Delta(\Lambda^{(d)}) \ge 2^{-d} \cdot \frac{d}{2} \log \log d.
+							\end{align}
+
+
 							</p>
-							<p class="fragment fade-in-then-semi-out">
-							\[
-							=							\sup_{ g \in SL_d(\R)} \frac{1}{2^d} \mu\left(B_{m(g \Z^d)}(0) \right)
-							\]
-							</p>
-							<p class="fragment fade-in-then-semi-out">
-							which we use to define our dimensional constant $c_d$
-							\[
-							\colon=	\frac{1}{2^d} 		c_d
-							\]
-							</p>
-							<p class="fragment fade-in-then-semi-out">
-							<p class="fragment fade-in-then-semi-out">
-							<p class="fragment fade-in-then-semi-out">
-							<p class="fragment fade-in-then-semi-out">
-							<p class="fragment fade-in-then-semi-out">
-							Putting it together, we have
-							\[
-							c_{d} = \sup\left\{ \mu\left( B_{r}(0)\right) \ | \ r> 0,\exists~g \in SL_d(\R) \text{ and }  B_{r}(0) \cap g\Z^d = \{ 0\}\right\}.
-							\]
-							</p>
-							<p class="fragment fade-in-then-semi-out">
-							Clearly, \(~c_d \in~[0,2^d]\), so supremum exists!
-							</p>
-						</div>
-						<div style="float: right;  width:40%; ">
-							<h4 style="text-align: center">
-								<br>
-								Visualizing in $\R^2$
-							</h4>
-							<div class="fig-container no-margin-top" data-preload data-file="LatticeAnimation/lattice_Cd2.html"></div>
-						</div>
-					</section>
-				</section>
-				<section style="text-align: left;">
-					<h2>
-						But why study lattice packings?
-					</h2>
-					<section>
-						<p class="fragment fade-in-then-semi-out">
-						Lattice packings are the most naive candidates for the sphere packing problem. 
-						</p>
-						<p class="fragment fade-in-then-semi-out">
-						Lattices have lots of applications in coding theory. In particular, they form good candidates for Euclidean codes under an Additive White Gaussian Noise (AWGN) model.
-						</p>
+
+
 						<div class="fragment fade-in-then-semi-out" style="border:3px solid darkgrey;border-radius: 5px;padding: 25px 25px 25px 20px;border-style: outset;   ">
 						<b>Open problem:</b><br><br>
 						
-						What are explicit descriptions of lattices that prove an optimal lower bound on $c_d \ge O(1)$ as $d \to \infty$? That is, what are the lattices that have the most optimal packing density in large dimensions?
+						What are explicit descriptions of lattices that prove these lower bounds as $d \to \infty$? That is, what are the lattices that have the most optimal packing density in large dimensions?
 						<br><br>
 
 						In terms of coding theory, this problem is to find explicitly lattices that achieve "goodness"
 						\begin{align}
-						\frac{r_{\text{pack}}(\Lambda^{(d)})}{r_{\text{eff}}(\Lambda^{(d)})}  \ge \frac{1}{2},
+						  \Delta(\Lambda^{(d)})^{\frac{1}{d}} = \frac{r_{\text{pack}}(\Lambda^{(d)})}{r_{\text{eff}}(\Lambda^{(d)})}  \ge \frac{1}{2},
 						\end{align}
-						for a sequence of lattices $\Lambda^{(d)} \subseteq \mathbb{R}^{d}$ as $d \to \infty$.
+						for a subsequence of lattices $\Lambda^{(d)} \subseteq \mathbb{R}^{d}$ as $d \to \infty$.
 						</div>
+							<p class="fragment fade-in-then-semi-out">
+							This is like the problem of finding <b> hay </b> in a haystack!
+
+							</p>
 					</section>
 					<section>
 						<p class="fragment fade-in-then-semi-out">
@@ -208,188 +168,18 @@
 						</p>
 
 						<p class="fragment fade-in-then-semi-out">
-						Some important work in this direction is due to Rush, Sloane, Loeliglar, Gaborit, Zémor.
+						Some important work in this direction is due to Rush, Sloane, Loeliger, Gaborit, Zémor.
 						</p>
 						<p class="fragment fade-in-then-semi-out">
-						The latest in the line of such works is Moustrou (2016) and Campello (2018). They considered variants of Construction A over residue algebras of number fields and Division algebra.
+						The latest in the line of such works is Moustrou (2016) and Campello (2018). They considered variants of Construction A over residue algebras of number fields and Hurwitz integers respectively. This narrows the class of lattices to look for in order to achieve Minkowski's lower bound.
 						</p>
 				
 						<p class="fragment fade-in-then-semi-out">
-						This joint work is the latest in this series and seems to be the most general result so far and encompasses all the best known lower bounds on $c_{d}$.
+						This joint work is the latest in this series and seems to be the most general result so far and encompasses all the previous constructions and the best possible lower bounds on $\limsup \Delta(\Lambda^{(d)})$ that they imply.
 						</p>
-
-
 					</section>
 				</section>
-				<section style="text-align: left;">
-					<h2>
-						What is known about $~c_d$?
-					</h2>
-					<section>
-						<p class="fragment fade-in-then-semi-out">
-						The exact value of the constant $c_d$ is known only for $d = \{ 1,2,3,4,5,6,7,8,24\}$. For other $d$, we want to understand the asymptotic behaviour. In this talk, we will only focus on lower bounds.
-						</p>
 
-						<div class="fragment fade-in-then-semi-out" style="border:3px solid darkgrey;border-radius: 5px;padding: 25px 25px 25px 20px;border-style: outset;   ">
-							<h4 style="text-align: center">
-								Some lower bounds for large dimensions
-							</h4>
-
-							<table style="width:100%">
-								<tr>
-									<th>Lower bound</th>
-									<th> Contribution of </th>
-									<th> Dimensions covered</th>
-								</tr>
-								<tr>
-									<td>$c_d \ge 1$</td>
-									<td>Minkowksi (1896) </td>
-									<td>$\forall ~d \ge 1$</td>
-								</tr>
-								<tr>
-									<td>$c_d \ge 2(d-1)$</td>
-									<td>Ball (1992)</td>
-									<td>$\forall ~d \ge 1$</td>
-								</tr>
-								<tr>
-									<td>$c_{4n} \ge 8.8n$</td>
-									<td>Vance (2011)</td>
-									<td>$d=4n , n \ge 1$</td>
-								</tr>
-								<tr>
-									<td>$c_{2\varphi(n)} \ge n$</td>
-									<td>Venkatesh (2013)</td>
-									<td>$d=2\varphi(k)$ for some $k$</td>
-								</tr>
-							</table> 	
-
-						</div>
-						<p class="fragment fade-in-then-semi-out">
-						Since $\lim \inf \left( \frac{\varphi(n)}{n} \log \log n\right) = e^{- \gamma}$, the last bound is the best lower bound (among these, and overall) on $c_d$ in infinitely many dimensions. The first dimension where it outperforms all others in this list is $d=960$.
-						</p>
-
-
-					</section>
-
-					<section>
-						<div style="float: left;  width:40%; ">
-						<p class="fragment fade-in-then-semi-out">
-						<!-- // transition showing d=24 leech lattice -->
-						Explicit lattice constructions can help us only upto $d \le 300$.
-						</p>
-
-
-						<p class="fragment fade-in-then-semi-out">
-						<!-- // transition to record bounds -->
-						</p>
-
-
-						<p class="fragment fade-in-then-semi-out">
-						<!-- //show balls lower bound -->
-						<span style="color:red;"> (Ball, 1992) </span>, the lower bound is as indicated.
-						</p>
-
-						<p class="fragment fade-in-then-semi-out">
-						<!-- // show vance lower bounds -->
-						<span style="color:purple;"> (Vance, 2011) </span>, using a probabilistic argument on lattices that lie in vector-space over quaternion division algebra. Works only when $4 \mid d$.
-						</p>
-
-
-						<p class="fragment fade-in-then-semi-out">
-						<!-- // disable record lattice data -->
-						<!-- // zoom out to compare vance and ball -->
-						</p>
-
-
-						<p class="fragment fade-in-then-semi-out">
-						<!-- // change y from c_d to c_d/d -->
-						</p>
-
-						<p class="fragment fade-in-then-semi-out">
-						<!-- //change x axis to logarithmic -->
-						</p>
-
-
-						<p class="fragment fade-in-then-semi-out">
-						<!-- // reveal venkatesh --> 
-						<span style="color:violet;"> (Venkatesh, 2013) </span>, using a probabilistic argument on lattices that lie in $(K \otimes_\mathbb{Q} \mathbb{R})^2$, $K$ is a cyclotomic field.
-						</p>
-
-
-						<p class="fragment fade-in-then-semi-out">
-						<span style="color:green;"> (G., 2021) </span>, using a probabilistic argument on lattices that lie in $(D \otimes_\mathbb{Q} \mathbb{R})^2$, $D$ is a division algebra over $\mathbb{Q}$.
-						<!-- // reveal amitsur -->
-						</p>
-
-
-
-						</div>
-						<div style="float: left;  width:60%; ">
-							<h4 style="text-align: center">
-								<br>
-								Comparison of bounds
-							</h4>
-							<div class="fig-container no-margin-top" data-preload data-file="LatticeAnimation/data_plot.html"></div>
-						</div>
-
-					</section>
-
-					<section>
-
-						<div class="fragment fade-in-then-semi-out" style="border:3px solid darkgrey;border-radius: 5px;padding: 25px 25px 25px 20px;border-style: outset;   ">
-							<h4 style="display: inline-block;" > Theorem  </h4> <i> (G. 2021)</i> 
-							<br>
-  Let $D$ be a finite-dimensional division algebra over $\mathbb{Q}$. Let $\mathcal{O} \subseteq D$ be an order in $D$ and $G_{0} \subseteq \mathcal{O}$ be a finite group embedded in the multiplicative group of $D$. Then if $d=2\dim_{\mathbb{Q}}D$, then
-  \begin{align}
-    c_{d} \ge \# G_{0}.
-  \end{align}
-
-						</div>
-
-
-						<p class="fragment fade-in-then-semi-out">
-						To recover Venkatesh's result, set $D=\mathbb{Q}(\mu_n)$, $\mathcal{O} = \mathbb{Z}[\mu_n]$ and $G_0 = \langle \mu_n \rangle$. Hence, this gives
-						\begin{align}
-						  c_{2 \varphi(n)} \ge n
-						\end{align}
-						</p>
-
-
-						<p class="fragment fade-in-then-semi-out">
-						The cherrypicked sequence of Venkatesh achieves an asymptotic growth of $O( d \log \log d )$. This is achieved by setting $K$ as the $n$th cyclotomic field where $n=\prod_{p < N} p$.
-						</p>
-
-						<p class="fragment fade-in-then-semi-out">
-						The new result provides more freedom to cherrypick sequences. 
-						Instead of choosing a sequence of cyclotomic fields, we can now choose sequences of $\mathbb{Q}$-divison algebras. However, no such sequence will be able to give an asymptotic result strictly better than $O( d \log \log d )$. Improvements in individual dimensions is still possible, as shown before.
-						</p>
-
-					</section>
-					<section>
-						<p class="fragment fade-in-then-semi-out">
-						The new work shows that the previous result can also be made effective in the following sense.
-						</p>
-
-						<div class="fragment fade-in-then-semi-out" style="border:3px solid darkgrey;border-radius: 5px;padding: 25px 25px 25px 20px;border-style: outset;   ">
-							<h4 style="display: inline-block;" > Theorem  </h4> <i> (G., Vlad Serban, 2021)</i> 
-							$\DeclareMathOperator{\calO}{\mathcal{O}}$
-							$\DeclareMathOperator{\IQ}{\mathbb{Q}}$
-							<br>
-							Let $D$ be a division algebra over a number field $K$ with ring of integers $\calO_K$. Let $\calO$ be an $\calO_K$-order in $D$. Let $G_0$ be a fixed finite subgroup of $\calO^\times$. 
-
-							Then, there exists for any $\varepsilon>0$ an $\calO$-lattice $\Lambda_\varepsilon$ in dimensions $ t \cdot \dim_{IQ} D$ of packing density 
-							$$ c_{t \cdot \dim_{\IQ} D } \ge 2^{t \cdot \dim_{\IQ} D }\cdot \Delta(\Lambda_\varepsilon)\geq(1-\varepsilon)\cdot \frac{\vert G_0\vert\cdot t}{e(1-e^{-t})}$$
-which can be constructed effectively.
-
-For $t=2$, we can find a slightly better effective lattice $\Lambda_{\epsilon}$ which satisfies
-							$$ c_{ 2\dim_{\IQ} D} \ge 2^{t \cdot \dim_{\IQ} D }\cdot \Delta(\Lambda_\varepsilon)\geq(1-\varepsilon)\cdot \vert G_0\vert $$
-						</div>
-						<p class="fragment fade-in-then-semi-out">
-						These lattices can be constructed in finite time algorithm, however these algorithms run in exponential time.
-						</p>
-
-					</section>
-				</section>
 				<section style="text-align: left;">
 					<h2>
 						How do effective results work?
@@ -450,10 +240,10 @@ But each one of them has a covolume of $p^{d-1}$.
 							Denote $X_d$ to be the set of all unit covolume lattices in $\mathbb{R}^{d}$.						So $\mathcal{L_p} \subseteq X_d$ is a set of unit covolume lattices, with $\#\mathcal{L}_p \to \infty$ as $p \to \infty$.
 							</p>
 							<p class="fragment fade-in-then-semi-out">
-							Now as before let $f:\R^d \to \R$ be a compactly supported Riemann integrable function. Let $\Phi_f:X_d \to \R$ be the lattice-sums of $f$, i.e. $\Phi_f(\Lambda): X_d \rightarrow \R$, given as \[  \Phi_f(\Lambda) = \sum_{v \in \Lambda \setminus \{ 0\}}^{} f(v).\]
+							Now let $f:\R^d \to \R$ be a compactly supported Riemann integrable function. Let $\Phi_f:X_d \to \R$ be the lattice-sums of $f$, i.e. $\Phi_f(\Lambda): X_d \rightarrow \R$, given as \[  \Phi_f(\Lambda) = \sum_{v \in \Lambda \setminus \{ 0\}}^{} f(v).\]
 							</p>
 							<p class="fragment fade-in-then-semi-out">
-							So let us try to find $\Phi_f$ on $\mathcal{L}_p$. We will assume that the prime $p$ is very large.
+							So let us try to average $\Phi_f$ on $\mathcal{L}_p$. We will assume that the prime $p$ is very large.
 							\begin{align}
 							\frac{1}{\#\mathcal{L}_p}\sum_{\Lambda \in \mathcal{L}_p} \Phi_f(\Lambda)
 							\end{align}
@@ -550,7 +340,7 @@ But each one of them has a covolume of $p^{d-1}$.
 						Since we are working with finitely many lattices, we can use this procedure to obtain a probabilistic algorithm that randomly generates lattices with good packing efficiency
 						</p>
 						<p class="fragment fade-in-then-semi-out">
-						This idea can be generalized to number fields, as was shown by (Moustrou, 2016).
+						This idea can be generalized to number fields, as was shown by Moustrou (2016), and hence narrowing down the class of lattices to consider. The packing bounds attained by Moustrou reach those by Venkatesh.
 						</p>
 						<p class="fragment fade-in-then-semi-out">
 						We can also generalize the proof for division rings. But what are analogue of prime ideals for division rings?
@@ -617,9 +407,6 @@ But each one of them has a covolume of $p^{d-1}$.
 						</div>
 						<p class="fragment fade-in-then-semi-out">
 						The sequence above is actually the sequence of green points mentioned before. This theorem shows that the construction is also effective. 
-						</p>
-						<p class="fragment fade-in-then-semi-out">
-						The condition of $ 2 \nmid \mathrm{ord}_p 2 $ has to do with division ring contructions. Details can be given on request!
 						</p>
 					</section>
 				</section>
