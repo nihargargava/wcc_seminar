@@ -164,7 +164,7 @@ Improvements have been made on this by Rogers, Vance, Venkatesh. The current bes
 					</section>
 					<section>
 						<p class="fragment fade-in-then-semi-out">
-						Finite time algorithms to generate such lattices exist. The basic idea is to use some variant of Leech-Sloane Construction A on codes and use a probabilistic argument like Gilbert-Varshamov.
+						Finite (exponential) time algorithms to generate such lattices exist. The basic idea is to use some variant of Leech-Sloane Construction A on codes and use a probabilistic argument like Gilbert-Varshamov.
 						</p>
 
 						<p class="fragment fade-in-then-semi-out">
@@ -343,7 +343,7 @@ But each one of them has a covolume of $p^{d-1}$.
 						This idea can be generalized to number fields, as was shown by Moustrou (2016), and hence narrowing down the class of lattices to consider. The packing bounds attained by Moustrou reach those by Venkatesh.
 						</p>
 						<p class="fragment fade-in-then-semi-out">
-						We can also generalize the proof for division rings. But what are analogue of prime ideals for division rings?
+						We can also generalize the proof for division rings. But what are analogues of prime ideals for division rings?
 						</p>
 
 						<p class="fragment fade-in-then-semi-out">
@@ -370,13 +370,13 @@ But each one of them has a covolume of $p^{d-1}$.
 							<br>
 
 							Let $d = 2 [D:\mathbb{Q}]$.
-							Let $\mathfrak{p} \subseteq \mathcal{O}$ be a prime as above and let $\pi_\mathfrak{p}:\mathcal{O}^{t} \rightarrow M_n(\mathbb{F}_q)^{2}$ be the projection map as above (on two copies of $\mathcal{O}$).
+							Let $\mathfrak{p} \subseteq \mathcal{O}$ be a prime as above and let $\pi_\mathfrak{p}:\mathcal{O}^{2} \rightarrow M_n(\mathbb{F}_q)^{2}$ be the projection map as above (on two copies of $\mathcal{O}$).
 
 							Consider the set of sub-lattices of $\mathcal{O}^{2}$ that are pre-images of $M_n(\mathbb{F}_q)$-submodules of $\mathbb{F}_q$-dimension $n(2n-1)$,
 							i.e. 
 \begin{align*}
 \mathcal{C}_{\mathfrak{p}} & = \{ C \subseteq M_n(\mathbb{F}_q)^{ 2 } \ | \ C \text{ is a $M_n(\mathbb{F}_q)$-submodule }\simeq (\mathbb{F}_q^{n})^{\oplus (2n-1)}\} , \\
-\mathcal{L}_{\mathfrak{p} } & = \{ \beta_{\mathfrak{p}} \pi_{\mathfrak{p}}^{-1}(C) \ | \ C \in \mathcal{C}_{\mathfrak{p}}\} , \ \  \beta_{\mathfrak{p}} = q^{-1/nmt}
+\mathcal{L}_{\mathfrak{p} } & = \{ \beta_{\mathfrak{p}} \pi_{\mathfrak{p}}^{-1}(C) \ | \ C \in \mathcal{C}_{\mathfrak{p}}\} , \ \  \beta_{\mathfrak{p}} = q^{-\frac{n}{d}}
   \end{align*}
 
 							Consider a compactly supported continuous function $f:\mathbb{R}^{d} \rightarrow \mathbb{R}$ and the lattice-sum function $\Phi_f:X_d \rightarrow \mathbb{R}$. Then the following holds.
