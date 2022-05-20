@@ -8,5 +8,5 @@ https://nihargargava.com/wcc_seminar
 
 This current version is not the best version. Because the presentation had to be only 20 minutes, a lot of nice animations had to be cut out. A better version of this presentation (in terms of animation) is at 
 
-https://nihargargava.com/effective_seminaeffective_seminar
+https://nihargargava.com/effective_seminar
  
